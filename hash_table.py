@@ -9,18 +9,19 @@
 class HashTable:
     def __init__(self, capacity=100):
         self.capacity = capacity
-        self.dict = {}
+        self.table = []
         self.values = []
 
     def set_capacity(self, new_cap):
         self.capacity = new_cap
 
     def __setitem__(self, value, key):
-        self.dict[key] = value
+        for index in self.table:
+            self.table[index].append(key, value)
 
     def __getitem__(self, key):
-        if key in self.dict:
-            return self.dict[key]
+        if key in self.table:
+            return self.table[key]
         else: raise KeyError("Missing key")
     
     def hash(self, key):

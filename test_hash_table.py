@@ -71,7 +71,7 @@ class TestHashTable(unittest.TestCase):
         where k is the key and m is the number of "slots or buckets" in the hash table
 
         returns hash no greater than its size - 1.
-        """
+    #     """
         h = HashTable(25)
         self.assertEqual(0, h.hash(0))
         self.assertEqual(5, h.hash(10))
@@ -90,15 +90,15 @@ class TestHashTable(unittest.TestCase):
         h = HashTable(50)
         self.assertEqual(list, type(h.values))
 
-    # def test_data_contents(self):
-    #     """
-    #     Test 8: A HashTable data array contains empty lists.
-    #     We need lists at each location in the array to store multiple 
-    #     key-value pairs in the event of collisions
-    #     """
-    #     h = HashTable(5)
-    #     expected = [ [], [], [], [], [] ]
-    #     self.assertEqual(expected, h.values)
+    def test_data_contents(self):
+        """
+        Test 8: A HashTable data array contains empty lists.
+        We need lists at each location in the array to store multiple 
+        key-value pairs in the event of collisions
+        """
+        h = HashTable(5)
+        expected = [ [], [], [], [], [] ]
+        self.assertEqual(expected, h.values)
 
 #     # """
 #     # Insertion Basics
