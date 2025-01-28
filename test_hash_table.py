@@ -23,82 +23,82 @@ class TestHashTable(unittest.TestCase):
         except NameError:
             self.fail("Could not instantiate HashTable.")
 
-#     def test_size(self):
-#         """
-#         Test 2: A default HashTable has a size attribute that is 100.
-#         """
-#         h = HashTable()
-#         self.assertEqual(100, h.capacity)
+    def test_size(self):
+        """
+        Test 2: A default HashTable has a size attribute that is 100.
+        """
+        h = HashTable()
+        self.assertEqual(100, h.capacity)
 
-#     def test_instantiation_with_size(self):
-#         """
-#         Test 3: A HashTable can be instantiated with an optional size.
-#         """
-#         h = HashTable(25)
-#         self.assertEqual(25, h.capacity)
+    def test_instantiation_with_size(self):
+        """
+        Test 3: A HashTable can be instantiated with an optional size.
+        """
+        h = HashTable(25)
+        self.assertEqual(25, h.capacity)
 
-#     # """
-#     # Basic API
-#     # """
-#     # Hint: Do the naive thing. You do NOT need data storage to pass this test.
-#     def test_simple_insertion(self):
-#         """
-#         Test 4: Insert a single key-value pair into to hash table
-#         """
-#         h = HashTable()
-#         try:
-#             h['spam'] = 'eggs'
-#         except TypeError:
-#             self.fail("HashTable has no __setitem__ implementation")
+    """
+    Basic API
+    """
+    #Hint: Do the naive thing. You do NOT need data storage to pass this test.
+    def test_simple_insertion(self):
+        """
+        Test 4: Insert a single key-value pair into to hash table
+        """
+        h = HashTable()
+        try:
+            h['spam'] = 'eggs'
+        except TypeError:
+            self.fail("HashTable has no __setitem__ implementation")
 
-#     #Hint: Do the naive thing. You do NOT need data storage to pass this test.
-#     def test_simple_retrieval(self):
-#         """
-#         Test 5: Retrive a value from the hash table. If key not present, raise KeyError
-#         """
-#         h = HashTable()
-#         try:
-#             _ = h['spam']
-#             self.fail("Did not raise KeyError: Missing key.")
-#         except KeyError:
-#             pass
+    #Hint: Do the naive thing. You do NOT need data storage to pass this test.
+    def test_simple_retrieval(self):
+        """
+        Test 5: Retrive a value from the hash table. If key not present, raise KeyError
+        """
+        h = HashTable()
+        try:
+            _ = h['spam']
+            self.fail("Did not raise KeyError: Missing key.")
+        except KeyError:
+            pass
    
-#     def test_hash(self):
-#         """
-#         Test 6: Hash function uses the Knuth Variant on Division to distribute
-#         key-value pairs in the hash table. 
-#         Knuth Variant on Division : h(k) = k(k+3) mod m
-#         where k is the key and m is the number of "slots or buckets" in the hash table
+    def test_hash(self):
+        """
+        Test 6: Hash function uses the Knuth Variant on Division to distribute
+        key-value pairs in the hash table. 
+        Knuth Variant on Division : h(k) = k(k+3) mod m
+        where k is the key and m is the number of "slots or buckets" in the hash table
 
-#         returns hash no greater than its size - 1.
-#         """
-#         h = HashTable(25)
-#         self.assertEqual(0, h.hash(0))
-#         self.assertEqual(5, h.hash(10))
-#         self.assertEqual(20, h.hash(15))
-#         self.assertEqual(10, h.hash(27))
-#         self.assertEqual(hash("fake key")*(hash("fake key")+3) % 25, h.hash("fake key"))
+        returns hash no greater than its size - 1.
+        """
+        h = HashTable(25)
+        self.assertEqual(0, h.hash(0))
+        self.assertEqual(5, h.hash(10))
+        self.assertEqual(20, h.hash(15))
+        self.assertEqual(10, h.hash(27))
+        self.assertEqual(hash("fake key")*(hash("fake key")+3) % 25, h.hash("fake key"))
 
-#     # """
-#     # Data Storage
-#     # """
+    """
+    Data Storage
+    """
 
-#     def test_data(self):
-#         """
-#         Test 7: A HashTable has an internal array for storing k-v pairs.
-#         """
-#         h = HashTable(50)
-#         self.assertEqual(list, type(h.values))
+    def test_data(self):
+        """
+        Test 7: A HashTable has an internal array for storing k-v pairs.
+        """
+        h = HashTable(50)
+        self.assertEqual(list, type(h.values))
 
-#     def test_data_contents(self):
-#         """
-#         Test 8: A HashTable data array contains empty lists.
-#         We need lists at each location in the array to store multiple 
-#         key-value pairs in the event of collisions
-#         """
-#         h = HashTable(5)
-#         expected = [ [], [], [], [], [] ]
-#         self.assertEqual(expected, h.values)
+    # def test_data_contents(self):
+    #     """
+    #     Test 8: A HashTable data array contains empty lists.
+    #     We need lists at each location in the array to store multiple 
+    #     key-value pairs in the event of collisions
+    #     """
+    #     h = HashTable(5)
+    #     expected = [ [], [], [], [], [] ]
+    #     self.assertEqual(expected, h.values)
 
 #     # """
 #     # Insertion Basics
